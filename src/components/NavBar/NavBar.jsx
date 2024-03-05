@@ -52,7 +52,7 @@ function NavBar(props) {
       {/* AppBar */}
       <AppBar
         component="nav"
-        sx={{ bgcolor: "white", padding: { lg: "10px 50px" }, height: { lg: "86px" } }}
+        sx={{ bgcolor: "white", padding: { lg: "10px 50px" }, height: { lg: "86px" },position: "static"}}
       >
         <Toolbar
           sx={{
