@@ -1,7 +1,7 @@
 
-export const fetchData = async () => {
+export const fetchCoinDetail = async (coin) => {
     try {
-      const response = await fetch("https://example.com/api/user");
+      const response = await fetch(`https://api.coingecko.com/api/v3/coins/${coin}`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }

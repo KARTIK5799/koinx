@@ -12,6 +12,7 @@ import {
   Toolbar,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom";
 import logo from "../../assets/Logo.svg";
 
 // Constants
@@ -33,11 +34,17 @@ function NavBar(props) {
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
+          <Link
+            key={item}
+            to={`/${item.toLowerCase().replace(" ", "-")}`}
+            style={{ textDecoration: "none" }}
+          >
+            <ListItem key={item} disablePadding>
+              <ListItemButton sx={{ textAlign: "center" }}>
+                <ListItemText primary={item} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
         ))}
       </List>
     </Box>
@@ -52,7 +59,12 @@ function NavBar(props) {
       {/* AppBar */}
       <AppBar
         component="nav"
-        sx={{ bgcolor: "white", padding: { lg: "10px 50px" }, height: { lg: "86px" },position: "static"}}
+        sx={{
+          bgcolor: "white",
+          padding: { lg: "10px 50px" },
+          height: { lg: "86px" },
+          position: "static",
+        }}
       >
         <Toolbar
           sx={{
@@ -64,15 +76,17 @@ function NavBar(props) {
         >
           {/* Logo */}
           <Box>
-            <img
-              src={logo}
-              alt="Logo"
-              style={{
-                height: "70px",
-                display: { sm: "block" },
-                alignSelf: "start",
-              }}
-            />
+            <Link to={`/`} style={{ textDecoration: "none" }}>
+              <img
+                src={logo}
+                alt="Logo"
+                style={{
+                  height: "70px",
+                  display: { sm: "block" },
+                  alignSelf: "start",
+                }}
+              />
+            </Link>
           </Box>
 
           {/* Menu Icon */}
@@ -94,24 +108,43 @@ function NavBar(props) {
                 sm: "block",
                 display: "flex",
                 justifyContent: "space-between",
-                
               },
             }}
           >
             {navItems.map((item) => (
-              <Button
+              <Link
                 key={item}
-                sx={{ color: "#000", marginRight: "30px", fontSize: "18px" ,textTransform: 'none'}}
+                to={`/${item.toLowerCase().replace(" ", "-")}`}
+                style={{ textDecoration: "none" }}
               >
-                {item}
-              </Button>
+                <Button
+                  key={item}
+                  sx={{
+                    color: "#000",
+                    marginRight: "30px",
+                    fontSize: "18px",
+                    textTransform: "none",
+                  }}
+                >
+                  {item}
+                </Button>
+              </Link>
             ))}
-            <Button
-              variant="contained"
-              sx={{ bgcolor: "#0f53fc", borderRadius: "7px", height: "43px", fontSize: "18px",textTransform: 'none' }}
-            >
-              Get Started
-            </Button>
+
+            <Link to={`/get-started`} style={{ textDecoration: "none" }}>
+              <Button
+                variant="contained"
+                sx={{
+                  bgcolor: "#0f53fc",
+                  borderRadius: "7px",
+                  height: "43px",
+                  fontSize: "18px",
+                  textTransform: "none",
+                }}
+              >
+                Get Started
+              </Button>
+            </Link>
           </Box>
         </Toolbar>
       </AppBar>
@@ -127,7 +160,10 @@ function NavBar(props) {
           anchor="right"
           sx={{
             display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
           }}
         >
           {drawer}

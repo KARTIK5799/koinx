@@ -6,6 +6,7 @@ import FreeTools from '../pages/FreeTools.jsx';
 import ResourceCenter from '../pages/ResourceCenter.jsx';
 import CoinDetail from '../pages/CoinDetail.jsx'
 import NotFound from '../pages/NotFound.jsx'
+import GetStarted from '../pages/GetStarted.jsx'
 
 const AppRoutes = () => (
     <Routes>
@@ -13,10 +14,10 @@ const AppRoutes = () => (
         <Route path="/crypto-taxes" element={<CryptoTaxes />} />
         <Route path="/free-tools" element={<FreeTools />} />
         <Route path="/resource-center" element={<ResourceCenter />} />
-        <Route path="/Get-Started" element={<ResourceCenter />} />
+        <Route path="/get-started" element={<GetStarted />} />
 
          {/* Route with dynamic parameter */}
-        <Route path="/coins/:id" element={<CoinDetail/>} />
+        <Route path="/coins/:coin" element={<CoinDetail/>} />
 
         {/* Fallback route for handling 404 errors */}
         <Route path="*" element={<NotFound/>} />

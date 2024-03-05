@@ -1,7 +1,10 @@
 import React from 'react'
 import NavBar from '../components/NavBar/NavBar'
 
+
+
 const Layout = ({children}) => {
+  
   return (
    
     <div>
@@ -10,9 +13,14 @@ const Layout = ({children}) => {
       <main>
         {children} 
       </main>
-      <footer>
-        {/* Footer content */}
-      </footer>
+
+
+
+
+      
+      {/* <footer>
+        footer
+      </footer> */}
     </div>
   );
 };
