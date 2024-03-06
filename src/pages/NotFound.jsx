@@ -1,9 +1,14 @@
 import React from 'react'
+import { useEffect } from 'react';
+import style from './Pages.module.css'
 
 const NotFound = () => {
+  useEffect(()=>{
+    document.title = `KoinX | 404 Not Found `;
+  })
   return (
-    <div>
-      404 not found
+    <div className={style.pageContainer}>
+    
     </div>
   )
 }

@@ -1,0 +1,6 @@
+.pageContainer{
+    background-color: var(--secondary-color);
+    width: 100%;
+    height: auto;
+    padding: 26px 63px;
+}

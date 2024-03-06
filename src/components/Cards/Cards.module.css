@@ -1,0 +1,236 @@
+.primaryCards{
+    background-color: var(--primary-color);
+    width: 1000px;
+    height: auto;
+    border-radius: 20px;
+    padding: 31px;
+    margin-top:20px ;
+ overflow-x: hidden;   
+}
+
+/* CharterdCard */
+.cardTitleCharted{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+    padding-bottom: 31px;
+}
+.coinImg{
+    height: 40px;
+}
+.cardPriceCharted{
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    gap: 2rem;
+    border-bottom:2px solid rgba(135, 129, 129, 0.561) ;
+    padding-bottom: 30px;
+}
+.usdPrice{
+    font-size: 40px;
+}
+.inrPrice{
+    font-size: 20px;
+}
+
+.growthChangePill{
+    width: 86px;
+    height: 22px;
+}
+.positiveGrowth{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #a2efb0;
+    border-radius: 2px;
+    color: #12b179;
+    font-size: 18px;
+}
+.negativeGrowth{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #efa2a2;
+    border-radius: 2px;
+    color: #b11212;
+    font-size: 18px;
+
+}
+
+.positiveGrowthIndicator>span{
+    font-size: 30px;
+    fill: #12b179;
+}
+
+.negativeGrowthIndicator >span{
+    transform: rotate(180deg);
+    font-size: 30px;
+    fill: #b11212;
+}
+.chartedTime{
+    font-size: 20px;
+    color: var(--text-gray);
+}
+
+.timespanCharted{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 31px;
+    padding-bottom: 31px;
+}
+.timeSpanLinks{
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    color: var(--text-gray);
+}
+.timeSpanLink{
+    padding: 3px 5px;
+}
+.timeSpanLink:hover{
+    background-color: #e3ecff;
+    color: #1d57d4;
+    border-radius: 20px;
+    
+}
+.chartCharted{
+   height: 400px;
+}
+
+/* PerformanceCard */
+.performanceCard{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.performanceTitle{
+   font-size: 20px;
+}
+.performanceIndicators{
+    margin-bottom: 31px;
+    font-size: 20px;
+}
+
+.performanceFundamentals{
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: flex-start;
+gap: 1rem;
+width: 100%;
+}
+.performanceFundamentalsTitle{
+    display: flex;
+    gap: 1rem;
+   
+  
+   
+}
+.performanceFundamentalsTitle >h3{
+font-weight: 600;
+}
+.performanceFundamentalsTitle>span{
+    background: var(--text-gray);
+    color: var(--text-white);
+    opacity: 0.7;
+    border-radius: 20px;
+   
+}
+
+.performanceFundamentalsData{
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ gap: 2rem;
+ width: 100%;
+ margin-bottom: 31px;
+}
+
+.performanceFundamentalsDataSection1Data,
+.performanceFundamentalsDataSection2Data
+{
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 20px 0;
+gap: 10rem;
+border-bottom: 2px solid rgb(107, 94, 94,0.2);
+}
+
+/* sentimentCard */
+.sentimentTitle{
+    font-size: 20px;
+}
+
+.sentimentCard{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  
+}
+
+.sentimenrCrousalsubTitle{
+    display: flex;
+    gap: 1rem;
+    margin-top: 31px;
+  
+}
+.sentimenrCrousalsubTitle>span{
+    background: var(--text-gray);
+    color: var(--text-white);
+    opacity: 0.7;
+    border-radius: 20px;
+    
+   
+}
+.crousalcomponent{
+    padding-bottom: 31px;
+}
+.sentimentEstimatePercentages{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+    margin-top: 31px;
+}
+.sentimentEstimatePercentage{
+padding: 70px 55px;
+text-align: center;
+border-radius: 100%;
+background: rgb(210, 249, 218);
+font-size:60px ;
+color:rgb(20, 161, 48) ;
+}
+
+.sentimentEstimatePercentagebuysell{
+    display: flex;
+    align-items: center;
+    
+    gap: 20px;
+    font-size: 20px;
+    color: var(--text-gray);
+    margin: 30px 0;
+}
+
+.buyBar{
+    height: 7px;
+    border-radius: 2px;
+    background:rgb(20, 161, 48) ;
+    width: 400px;
+}
+.HoldBar{
+    height: 7px;
+    border-radius: 2px;
+    background:var(--text-gray) ;
+    width: 70px;
+}
+.SellBar{
+    height: 7px;
+    border-radius: 2px;
+    background:red ;
+    width: 170px;
+}

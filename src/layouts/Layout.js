@@ -3,21 +3,24 @@ import NavBar from '../components/NavBar/NavBar'
 
 
 
-const Layout = ({children}) => {
-  
+
+
+const Layout = ({ children }) => {
+
   return (
-   
+
     <div>
       {/* Navbar */}
-      <NavBar/>
+      <NavBar />
+
       <main>
-        {children} 
+        {children}
       </main>
 
 
 
 
-      
+
       {/* <footer>
         footer
       </footer> */}

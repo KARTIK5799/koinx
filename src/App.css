@@ -6,4 +6,13 @@
 body,html{
 height: 100%;
 width: 100%;
+font-family: "Roboto", sans-serif;
+
+}
+:root {
+  --primary-color: white;
+  --secondary-color: #EEF3F5;
+  --text-white: #ffffff;
+  --text-gray: #717785;
+  --text-black: #000;
 }
