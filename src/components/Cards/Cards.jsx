@@ -5,6 +5,8 @@ import coinImg from "../../assets/Bitcoin.svg.webp";
 // import TradingViewWidget from "../TradingChart/TradingViewWidget";
 import PriceIndicator from "../PriceIndicator/PriceIndicator";
 import Crousal from "../Crousal/Crousal";
+import PieChartWithCenterLabel from "../PieChart/PieChart";
+
 
 
 
@@ -25,6 +27,9 @@ const Cards = ({
         {charted && <CharterdCard />}
         {performance && <PerformanceCard/>}
         {sentiment && <SentimentCard/>}
+        {about && <AboutCart/>}
+        {tokonomics && <TokonomicsCard/>}
+        {team && <TeamCard/>}
         </div>
     </div>
   );
@@ -232,6 +237,200 @@ const SentimentCard=({data})=>{
       </div>
     );
 
+}
+
+const AboutCart=({data})=>{
+  return (
+    <div className={`${style.primaryCards} ${style.aboutCard}`}>
+      <section className={style.aboutTitle}>
+        <h2>About Bitcoin</h2>
+      </section>
+
+      <section className={style.aboutcoin}>
+        <h3>What is Bitcoin?</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+          dolores? Voluptate quidem delectus libero adipisci ratione quis
+          voluptatum autem, ea ducimus non, dignissimos cupiditate laborum at!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+          quisquam praesentium. Quae, sed molestias similique magni unde
+          exercitationem itaque sint atque, non quidem, tenetur ut!
+        </p>
+      </section>
+
+      <section className={style.aboutcoin}>
+        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+          dolores? Voluptate quidem delectus libero adipisci ratione quis
+          voluptatum autem, ea ducimus non, dignissimos cupiditate laborum at!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+          quisquam praesentium. Quae, sed molestias similique magni unde
+          exercitationem itaque sint atque, non quidem, tenetur ut!
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+          dolores? Voluptate quidem delectus libero adipisci ratione quis
+          voluptatum autem, ea ducimus non, dignissimos cupiditate laborum at!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+          quisquam praesentium. Quae, sed molestias similique magni unde
+          exercitationem itaque sint atque, non quidem, tenetur ut!
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+          dolores? Voluptate quidem delectus libero adipisci ratione quis
+          voluptatum autem, ea ducimus non, dignissimos cupiditate laborum at!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+          quisquam praesentium. Quae, sed molestias similique magni unde
+          exercitationem itaque sint atque, non quidem, tenetur ut!
+        </p>
+      </section>
+
+      <section className={style.aboutCards}>
+        <h3>Already Holding Bitcoin?</h3>
+        <div className={style.aboutcard}>
+          <div className={style.card}>
+            <img
+              src="https://images.pexels.com/photos/733853/pexels-photo-733853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt=""
+            />
+            <div className={style.cardDetail}>
+              <h4>Calculate your profits</h4>
+              <p>
+                Check Now{" "}
+                <span class="material-symbols-outlined">trending_flat</span>
+              </p>
+            </div>
+          </div>
+      
+          <div className={style.card} style={{ background: "linear-gradient(130deg, #fe9565, #f13e38)" }}>
+
+            <img
+              src="https://images.pexels.com/photos/20230232/pexels-photo-20230232/free-photo-of-tulips-in-a-vase-against-a-green-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt=""
+            />
+            <div className={style.cardDetail}>
+              <h4>Calculate your taxes</h4>
+              <p>
+                Check Now{" "}
+                <span class="material-symbols-outlined">trending_flat</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+const TokonomicsCard = () => {
+ 
+
+  return (
+    <div className={`${style.primaryCards} ${style.tokonomicsCard}`}>
+      <section className={style.tokonomicsTitle}>
+        <h2>Tokonomics</h2>
+      </section>
+
+      <section className={style.pieChartCard}>
+        <div>
+          <h4>Initial Distribution</h4>
+        </div>
+        <div className={style.pieChart}>
+          <PieChartWithCenterLabel />
+        </div>
+        <div>
+          <p className={style.pieChartText}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
+            quis, possimus maiores necessitatibus voluptas non dignissimos
+            tempora adipisci esse tempore sit odio rem, hic porro error ipsum ad
+            accusantium consequuntur quibusdam voluptatum enim eos velit.
+            Soluta, velit molestiae quas assumenda id, reiciendis vel quasi
+            explicabo obcaecati consectetur error aliquam repellendus omnis.
+            Porro vitae mollitia assumenda doloremque qui aut optio odit labore
+            harum delectus aperiam, iure at voluptatibus quod eos libero id
+            saepe veritatis vero. Magni, nihil praesentium! Voluptatibus,
+            dolorem consequatur sequi fuga minima labore architecto harum porro,
+            dolore quae, quas officia magnam quaerat nihil quam aperiam
+            consectetur voluptate dolor nobis in cupiditate obcaecati. Error
+            inventore quisquam alias, maxime nostrum incidunt, non dicta quasi
+            tempora odio recusandae. 
+          </p>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+const TeamCard=({data})=>{
+  return (
+    <div className={`${style.primaryCards} ${style.teamCard}`}>
+      <section className={style.tokonomicsTitle}>
+        <h2>Team</h2>
+      </section>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+        accusantium, officiis corporis, deleniti at pariatur, magni saepe a
+        accusamus itaque nesciunt tempora? Dolorum iure ut pariatur vitae nisi
+        nesciunt eligendi id maxime, voluptates quidem consequatur voluptas rem
+        voluptatibus neque accusamus itaque, quos expedita deleniti blanditiis.
+        Accusamus ex sit tenetur animi neque atque labore aliquid odio commodi!
+        Sapiente similique.
+      </div>
+      <section className={style.teamMembers}>
+        <div className={style.memberCard}>
+          <div className={style.userDetail}>
+          <img src="https://images.pexels.com/photos/874158/pexels-photo-874158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" />
+          <h3>Jonh Smith</h3>
+          <p>Designer Ui/Ux</p>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
+            architecto possimus expedita nulla debitis ex facilis porro id,
+            laudantium odit rem nesciunt a sed placeat quo quis natus culpa
+            adipisci earum iusto nihil dolorem aperiam rerum. Aliquam ex quidem
+            doloribus repudiandae ab delectus rem tenetur, nam fuga
+            exercitationem impedit sunt! Unde esse vero, consequatur debitis
+            voluptate culpa maiores non optio.
+          </p>
+        </div>
+
+        <div className={style.memberCard}>
+          <div className={style.userDetail}>
+          <img src="https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" />
+          <h3>Alen Kim</h3>
+          <p>Web developer</p>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
+            architecto possimus expedita nulla debitis ex facilis porro id,
+            laudantium odit rem nesciunt a sed placeat quo quis natus culpa
+            adipisci earum iusto nihil dolorem aperiam rerum. Aliquam ex quidem
+            doloribus repudiandae ab delectus rem tenetur, nam fuga
+            exercitationem impedit sunt! Unde esse vero, consequatur debitis
+            voluptate culpa maiores non optio.
+          </p>
+        </div>
+
+        <div className={style.memberCard}>
+          <div className={style.userDetail}>
+          <img src="https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" />
+          <h3>Ally Jonson</h3>
+          <p>Graphic Designer </p>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
+            architecto possimus expedita nulla debitis ex facilis porro id,
+            laudantium odit rem nesciunt a sed placeat quo quis natus culpa
+            adipisci earum iusto nihil dolorem aperiam rerum. Aliquam ex quidem
+            doloribus repudiandae ab delectus rem tenetur, nam fuga
+            exercitationem impedit sunt! Unde esse vero, consequatur debitis
+            voluptate culpa maiores non optio.
+          </p>
+        </div>
+      </section>
+    </div>
+  );
 }
 
 export default Cards;
