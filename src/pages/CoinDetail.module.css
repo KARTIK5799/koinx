@@ -84,15 +84,22 @@
     gap: 0.7rem;
     margin-top: 31px;
 }
-
+.cardTitleChartedMobile{
+   display: none;
+}
+.coinImg{
+    height: 40px;
+}
 
 @media only screen and (max-width: 500px) {
     .cardSection{
        flex-direction: column;
      
     }
-    .cardOne{
-        
-       
-    }
+    .cardTitleChartedMobile{
+        display: flex;
+        margin-top: 20px;
+        gap: 1rem;
+        align-items: center;
+     }
     }

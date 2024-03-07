@@ -7,6 +7,7 @@ import style from "./CoinDetail.module.css";
 import Anime from "../../src/assets/animated.png";
 import { fetchCoinDetail, fetchTrendindcoins } from "../api/CoinData";
 import Filter from "../components/Filter/Filter";
+import { Button } from "@mui/material";
 
 
 const CoinDetail = () => {
@@ -51,6 +52,27 @@ const CoinDetail = () => {
   return (
     <div className={styles.pageContainer}>
       <BreadCrums coin={lowercaseCoin} />
+
+      <section className={style.cardTitleChartedMobile}>
+        <img src={coinData.image.large} alt={coinData.symbol} className={style.coinImg} />
+        <h2>{coinData.name}</h2>
+        <p>{coinData && coinData.symbol && coinData.symbol.toUpperCase()}</p>
+
+        <Button
+          variant="contained"
+          sx={{
+            bgcolor: "#768396",
+            borderRadius: "7px",
+            height: "43px",
+            fontSize: "18px",
+            textTransform: "none",
+          }}
+        >
+         Rank  #{
+          coinData.market_cap_rank}
+        </Button>
+      </section>
+
       <div className={style.cardSection}>
         <div className={style.primaryCardsSection}>
           <Cards charted={true} coindata={coinData} />

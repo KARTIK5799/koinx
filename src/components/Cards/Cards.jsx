@@ -91,7 +91,7 @@ const CharterdCard = ({ coindata }) => {
           coindata.market_cap_rank}
         </Button>
       </section>
-
+          
       <section className={style.cardPriceCharted}>
         <div className={style.priceCharted}>
           <h2 className={style.usdPrice}>${coindata.market_data.current_price.usd}</h2>

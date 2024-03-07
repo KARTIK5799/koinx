@@ -21,8 +21,8 @@
 }
 .cardPriceCharted{
     display: flex;
-    align-items: start;
-    justify-content: start;
+    align-items: flex-start;
+    justify-content: flex-start;
     gap: 2rem;
     border-bottom:2px solid rgba(135, 129, 129, 0.561) ;
     padding-bottom: 30px;
@@ -319,7 +319,7 @@ padding-bottom: 31px;
     gap: 2rem;
 }
 .pieChart{
-    margin-left: -100px;
+    margin-left: -150px;
 }
 .pieChartText{
     line-height: 30px;
@@ -454,7 +454,7 @@ gap: 0.5rem;
                 line-height: 20px;
                }
                .pieChart{
-                width: 20rem;
+                white-space: wrap;
                 padding: 0;
                }
                .aboutcard{
@@ -542,4 +542,30 @@ gap: 0.5rem;
                         .performanceFundamentalsDataSection1Data{
                             gap: 10rem;
                         }
+                        .cardTitleCharted{
+                            display: none;
+                        }
+
+                        .cardPriceCharted{
+                            margin-top: 20px;
+                            margin-left: 10px;
+                            margin-right: 10px;
+                            align-items: flex-start;
+                            padding-bottom: 10px;
+                        }
+                        .timespanCharted{
+                            flex-direction: column;
+                            gap: 1rem;
+                            margin-top: 21px;
+                            padding-bottom: 21px;
+                            font-size: 13px;
+                            align-items: flex-start;
+                            margin-left: 10px;
+                        }
+                        .timeSpanLinks{
+                            gap: 0.3rem;
+                        }
+                        .chartCharted{
+                            height: 200px;
+                         }
                         }
