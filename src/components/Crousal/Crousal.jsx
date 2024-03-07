@@ -1,68 +1,36 @@
-import React from "react";
+import React, { useRef } from "react";
 import style from "./Crousal.module.css";
-
+import SentimentCard from "../Cards/SentimentCard";
 
 const Crousal = () => {
- 
-  
- return(
-<div className={style.CarouselContainer}>
+  const colorList = ["red", "green", "blue"];
+  const colorCardRef = useRef(null);
 
-<div className={`${style.crouselCards} ${style.redCard}`}>
-      <div className={style.cardimg}>
-       <span className="material-symbols-outlined">
-        newspaper
-       </span>
+  const scrollToNext = () => {
+    colorCardRef.current.scrollLeft += colorCardRef.current.offsetWidth;
+  };
+
+  const scrollToPrev = () => {
+    colorCardRef.current.scrollLeft -= colorCardRef.current.offsetWidth;
+  };
+
+  return (
+    <div className={style.carouselContainer}>
+      <button className={style.prevButton} onClick={scrollToPrev}>
+        <span className="material-symbols-outlined">arrow_back_ios</span>
+      </button>
+      <div className={style.carousel} ref={colorCardRef}>
+        {colorList.map((symbol) => (
+          <div key={symbol} className={style.carouselItem}>
+            <SentimentCard color={symbol} />
+          </div>
+        ))}
       </div>
-      <div className={style.crouselTaxt}>
-       <div className={style.crouselTaxtHeading}>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis quae
-       </div>
-        <div className={style.crouselPlaneTaxt}>
-          Lorem ipsum dolor sit ame sint qui ratione ipsum, adipisci sapiente voluptates nostrum? Dolorum maxime in quae. Nulla sed quas doloremque, delectus laborum inventore.
-        </div>
-     </div>
-   </div>
-
-   <div className={`${style.crouselCards} ${style.greenCard}`}>
-      <div className={style.cardimg}>
-       <span className="material-symbols-outlined">
-       moving
-       </span>
-      </div>
-      <div className={style.crouselTaxt}>
-       <div className={style.crouselTaxtHeading}>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis quae
-       </div>
-        <div className={style.crouselPlaneTaxt}>
-          Lorem ipsum dolor sit ame sint qui ratione ipsum, adipisci sapiente voluptates nostrum? Dolorum maxime in quae. Nulla sed quas doloremque, delectus laborum inventore.
-        </div>
-     </div>
-   </div>
-
-
-   <div className={`${style.crouselCards} ${style.blueCard}`}>
-      <div className={style.cardimg}>
-       <span className="material-symbols-outlined">
-        newspaper
-       </span>
-      </div>
-      <div className={style.crouselTaxt}>
-       <div className={style.crouselTaxtHeading}>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis quae
-       </div>
-        <div className={style.crouselPlaneTaxt}>
-          Lorem ipsum dolor sit ame sint qui ratione ipsum, adipisci sapiente voluptates nostrum? Dolorum maxime in quae. Nulla sed quas doloremque, delectus laborum inventore.
-        </div>
-     </div>
-   </div>
-
-     
-       
-
-</div>
- )
+      <button className={style.nextButton} onClick={scrollToNext}>
+        <span className="material-symbols-outlined">arrow_forward_ios</span>
+      </button>
+    </div>
+  );
 };
 
 export default Crousal;
-

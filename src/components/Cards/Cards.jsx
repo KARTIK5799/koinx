@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import style from "./Cards.module.css";
 import { Button } from "@mui/material";
-import coinImg from "../../assets/Bitcoin.svg.webp";
 import TradingViewWidget from "../TradingChart/TradingViewWidget";
 import PriceIndicator from "../PriceIndicator/PriceIndicator";
 import Crousal from "../Crousal/Crousal";
@@ -36,8 +35,7 @@ const Cards = ({coindata,
 };
 
 const CharterdCard = ({ coindata }) => {
-  console.log()
-  const [positive, setPositive] = useState(false);
+ 
   const[timeSpanCharted,setTimeSpanCharted]=useState("24H");
   const[timeSpanSelected,setTimeSpanSelected]=useState("24H");
 
@@ -230,11 +228,7 @@ info
 }
 
 const SentimentCard=({data})=>{
-    var settings = {
-       
-      };
-    
-    return (
+     return (
       <div className={`${style.primaryCards} ${style.sentimentCard}`}>
         <section className={style.sentimentTitle}>
           <h2>Sentiment</h2>

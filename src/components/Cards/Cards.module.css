@@ -167,6 +167,10 @@ padding: 20px 0;
 gap: 10rem;
 border-bottom: 2px solid rgb(107, 94, 94,0.2);
 }
+.performanceFundamentalsDataSection1Data{
+    gap: 12rem;  
+}
+
 
 /* sentimentCard */
 .sentimentTitle{
@@ -357,3 +361,80 @@ gap: 0.5rem;
 .userDetail h3{
     color: var(--text-black);
 }
+
+.smallCard{
+   max-height:220px ;
+  
+    overflow-y: hidden;
+}
+
+.CarouselContainer{
+    display: flex;
+    width: auto;
+    gap: 2rem;
+    
+    }
+    
+    .crouselCards{
+        display: flex;
+     
+        width: 500px;
+        height:250px ;
+        gap: 2rem;
+        align-items: start;
+        justify-content: center;
+        padding: 20px;
+        margin-top:31px ;
+        border-radius: 20px;
+       }
+    
+       .blueCard{
+        background-color: rgb(180, 225, 255);
+    }
+    .greenCard{
+        background-color: rgb(193, 251, 205);
+    }
+    .redCard{
+        background-color: rgb(251, 193, 193);
+    }
+    
+    .crouselTaxtHeading{
+        font-size: 17px;
+        font-weight: 700;
+        }
+        .crouselTaxt{
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            line-height: 25px;
+        }
+    
+        .blueCard .cardimg{
+            margin-top: 10px;
+            color: var(--text-white);
+            background: rgb(36, 166, 253);
+            border-radius: 50px;
+            padding: 18px;
+        }
+        .greenCard .cardimg{
+            margin-top: 10px;
+            color: var(--text-white);
+            background: rgb(50, 255, 91);
+            padding: 10px;
+            border-radius: 30px;
+            padding: 18px;
+        
+        }
+        .redCard .cardimg{
+            margin-top: 10px;
+            color: var(--text-white);
+            background: rgb(252, 3, 3);
+            padding: 10px;
+            border-radius: 30px;
+            padding: 18px;
+        
+        } 
+    
+    
+    
+    

@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, memo } from 'react';
 
-function TradingViewWidget({chartTimeSpan,symbol}) {
+function TradingViewWidget({ chartTimeSpan, symbol }) {
   const container = useRef();
 
-
   useEffect(() => {
+    // container.current.innerHTML ="" ; 
+
     if (!container.current.querySelector("script")) {
       const script = document.createElement("script");
       script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
@@ -28,12 +29,11 @@ function TradingViewWidget({chartTimeSpan,symbol}) {
         }`;
       container.current.appendChild(script);
     }
-  }, [chartTimeSpan,symbol]);
+  }, [chartTimeSpan, symbol]);
 
   return (
-    <div className="tradingview-widget-container" ref={container} style={{ height: "100%", width: "100%" ,border:'none' }}>
+    <div className="tradingview-widget-container" ref={container} style={{ height: "100%", width: "100%", border: 'none' }}>
       <div className="tradingview-widget-container__widget" style={{ height: "calc(100% - 32px)", width: "100%" }}></div>
-      
     </div>
   );
 }

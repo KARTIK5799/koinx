@@ -3,9 +3,9 @@
 .carouselContainer {
     display: flex;
     align-items: center;
-    margin-top: 50px;
-    margin: 1rem;
-width: 1000px;
+    margin-top:  100px; 
+    
+width: 100%;
 }
 
 .carousel {
@@ -39,6 +39,6 @@ width: 1000px;
     margin-left: 0px;
 }
 .prevButton{
-    margin-left: -5rem;
+    margin-left:0;
     left: 5%;
 }

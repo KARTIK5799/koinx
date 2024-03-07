@@ -13,14 +13,14 @@ const CoinDetail = () => {
   const [coinData, setCoinData] = useState(null);
   const [trendingData, setTreandingData] = useState(null);
   const [error, setError] = useState(null);
-  const [isDataFetched, setIsDataFetched] = useState(false); // New state variable
+  const [isDataFetched, setIsDataFetched] = useState(false); 
 
   const fetchData = async () => {
     try {
       const data = await fetchCoinDetail(coin);
       setCoinData(data);
     } catch (error) {
-      console.error("Error fetching coin data:", error);
+      console.error("Error fetching coin data:",error);
       setError(error);
     }
   };
@@ -36,13 +36,12 @@ const CoinDetail = () => {
   };
 
   useEffect(() => {
-    if (!isDataFetched) { // Check if data has already been fetched
+    if (!isDataFetched) { 
       fetchData();
       fetchTrends();
-      setIsDataFetched(true); // Update state to indicate data has been fetched
+      setIsDataFetched(true); 
     }
-  }, [coin, isDataFetched]); // Include isDataFetched in the dependency array
-
+  }, [coin, fetchData, isDataFetched]); 
   useEffect(() => {
     document.title = `Coin Detail - ${coin}`;
   });
