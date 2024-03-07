@@ -490,4 +490,56 @@ gap: 0.5rem;
                     margin-top: 21px;
                   
                 }
-             }
+                .crouselCards{
+                    width: 300px;
+                    height:170px ;
+                    gap: 1rem;
+                    padding: 10px;
+                    margin-top:21px ;
+                    border-radius: 10px;
+                    font-size: 12px;
+                    line-height: 30px;
+                    
+                   }
+                   .redCard .cardimg{
+                    margin-top: 5px;
+                  
+                    border-radius: 50px;
+                    padding: 9px;
+                }
+                .greenCard .cardimg{
+                    margin-top: 5px;
+                  
+                    border-radius: 50px;
+                    padding: 9px;
+                }
+                .blueCard .cardimg{
+                    margin-top: 5px;
+                  
+                    border-radius: 50px;
+                    padding: 9px;
+                }
+                .crouselTaxtHeading{
+                    font-size: 15px;
+                    font-weight: 700;
+                    line-height: 16px;
+                    }
+                    .crouselPlaneTaxt{
+                        line-height: 16px;
+                    }
+                    .performanceFundamentalsData{
+                        display: flex;
+                       flex-direction: column;
+                        gap: 3rem;
+                    }
+                        .performanceFundamentalsDataSection1Data,
+                        .performanceFundamentalsDataSection2Data {
+                            
+                            padding: 10px 0;
+                            gap: 1rem;
+                       
+                        }
+                        .performanceFundamentalsDataSection1Data{
+                            gap: 10rem;
+                        }
+                        }

@@ -44,3 +44,15 @@
     'opsz' 24
   }
   
+  @media only screen and (max-width: 500px) {
+    .priceBar{
+        width: 251px;   
+    }
+    .prices{
+        font-size: 13px;
+        text-align: center;
+    }
+    .tradePriceInd{
+        margin: auto;
+    }
+  }
