@@ -7,7 +7,7 @@ const Footer = () => {
     <div className={style.containerFooter}>
       <h1 className={style.firstHeading}>You May Also Like!</h1>
       <FooterCrousal/>
-      <h1 className={style.secondHeading}>You May Also Like!</h1>
+      <h1 className={style.secondHeading}>Trending Coins </h1>
       <FooterCrousal/>
     </div>
   )

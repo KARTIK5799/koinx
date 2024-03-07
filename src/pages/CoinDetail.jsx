@@ -10,6 +10,7 @@ import Filter from "../components/Filter/Filter";
 
 const CoinDetail = () => {
   const { coin } = useParams();
+  const lowercaseCoin = coin.toLowerCase();
   const [coinData, setCoinData] = useState(null);
   const [trendingData, setTreandingData] = useState(null);
   const [error, setError] = useState(null);
@@ -17,7 +18,7 @@ const CoinDetail = () => {
 
   const fetchData = async () => {
     try {
-      const data = await fetchCoinDetail(coin);
+      const data = await fetchCoinDetail(lowercaseCoin);
       setCoinData(data);
     } catch (error) {
       console.error("Error fetching coin data:",error);
@@ -41,14 +42,14 @@ const CoinDetail = () => {
       fetchTrends();
       setIsDataFetched(true); 
     }
-  }, [coin, fetchData, isDataFetched]); 
+  }, [lowercaseCoin, fetchData, isDataFetched]); 
   useEffect(() => {
-    document.title = `Coin Detail - ${coin}`;
+    document.title = `lowercaseCoin Detail - ${lowercaseCoin}`;
   });
 
   return (
     <div className={styles.pageContainer}>
-      <BreadCrums coin={coin} />
+      <BreadCrums coin={lowercaseCoin} />
       <div className={style.cardSection}>
         <div className={style.primaryCardsSection}>
           <Cards charted={true} coindata={coinData} />

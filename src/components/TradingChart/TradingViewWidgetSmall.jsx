@@ -1,16 +1,21 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
-const TradingViewWidgetSmall = ({ symbol, dateRange = "12M", colorTheme = "light", isTransparent = true }) => {
+const TradingViewWidgetSmall = ({
+  symbol,
+  dateRange = "12M",
+  colorTheme = "light",
+  isTransparent = true,
+}) => {
   const containerRef = useRef(null);
-  
+
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js";
+    script.src =
+      "https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js";
     script.async = true;
 
-    
     const widgetConfig = {
-      symbol,
+      symbol, 
       width: "100%",
       height: "100%",
       locale: "en",
@@ -18,25 +23,20 @@ const TradingViewWidgetSmall = ({ symbol, dateRange = "12M", colorTheme = "light
       colorTheme,
       isTransparent,
       autosize: true,
-      largeChartUrl: ""
+      largeChartUrl: "",
     };
 
-  
-    script.addEventListener('load', () => {
-      
+    script.addEventListener("load", () => {
       if (window.TradingView) {
         new window.TradingView.MiniSymbolOverviewWidget(widgetConfig);
       }
     });
 
-   
     const container = containerRef.current;
-     
+
     container.appendChild(script);
 
-    return () => {
-    
-    };
+    return () => {};
   }, [symbol, dateRange, colorTheme, isTransparent]);
 
   return <div ref={containerRef} id="tradingview-widget-container" />;

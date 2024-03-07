@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+
 import style from "./Footer.module.css";
 import SmallCard from "../Cards/SmallCard";
 
@@ -18,7 +19,6 @@ const FooterCrousal = () => {
   return (
     <>
     <div className={style.carouselContainer}>
-      
       <button className={style.prevButton} onClick={scrollToPrev}>
         <span class="material-symbols-outlined">arrow_back_ios</span>
       </button>
