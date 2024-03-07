@@ -1,49 +1,59 @@
-import React, { useEffect, useState } from 'react';
-import styles from './Pages.module.css'
-import { useParams } from 'react-router';
-import BreadCrums from '../components/BreadCrums/BreadCrums';
-import Cards from '../components/Cards/Cards';
-import style from './CoinDetail.module.css'
-import Anime from '../../src/assets/animated.png'
-// import { fetchCoinDetail } from '../api/CoinData';
+import React, { useEffect, useState } from "react";
+import styles from "./Pages.module.css";
+import { useParams } from "react-router";
+import BreadCrums from "../components/BreadCrums/BreadCrums";
+import Cards from "../components/Cards/Cards";
+import style from "./CoinDetail.module.css";
+import Anime from "../../src/assets/animated.png";
+import { fetchCoinDetail, fetchTrendindcoins } from "../api/CoinData";
+import Filter from "../components/Filter/Filter";
 
 const CoinDetail = () => {
   const { coin } = useParams();
-  // const [coinData, setCoinData] = useState(null);
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null);
+  const [coinData, setCoinData] = useState(null);
+  const [trendingData, setTreandingData] = useState(null);
+  const [error, setError] = useState(null);
+  const [isDataFetched, setIsDataFetched] = useState(false); // New state variable
 
-  // const fetchData = async () => {
-  //   try {
-  //     const data = await fetchCoinDetail(coin);
-  //     setCoinData(data);
-  //     setLoading(false);
-  //   } catch (error) {
-  //     console.error("Error fetching coin data:", error);
-  //     setError(error);
-  //     setLoading(false);
-  //   }
-  // };
+  const fetchData = async () => {
+    try {
+      const data = await fetchCoinDetail(coin);
+      setCoinData(data);
+    } catch (error) {
+      console.error("Error fetching coin data:", error);
+      setError(error);
+    }
+  };
 
-  // useEffect(() => {
-  //   setLoading(true);
-  //   fetchData();
-  // }, [coin]);
+  const fetchTrends = async () => {
+    try {
+      const data = await fetchTrendindcoins();
+      setTreandingData(data);
+    } catch (error) {
+      console.error("Error fetching coin data:", error);
+      setError(error);
+    }
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
+    if (!isDataFetched) { // Check if data has already been fetched
+      fetchData();
+      fetchTrends();
+      setIsDataFetched(true); // Update state to indicate data has been fetched
+    }
+  }, [coin, isDataFetched]); // Include isDataFetched in the dependency array
+
+  useEffect(() => {
     document.title = `Coin Detail - ${coin}`;
-  })
+  });
+
   return (
     <div className={styles.pageContainer}>
       <BreadCrums coin={coin} />
       <div className={style.cardSection}>
         <div className={style.primaryCardsSection}>
-          <Cards charted={true} />
-          <Cards performance={true} />
-          <Cards sentiment={true} />
-          <Cards about={true} />
-          <Cards tokonomics={true} />
-          <Cards team={true} />
+          <Cards charted={true} coindata={coinData} />
+          <Filter coindata={coinData}/>
         </div>
         <div className={style.secondaryCardSection}>
           <div className={style.cardOne}>
@@ -54,16 +64,31 @@ const CoinDetail = () => {
               recusandae soluta cumque quo, asperiores eius, unde iusto dolore.
             </p>
             <img src={Anime} alt="" />
-            <p className={style.joinfree}>Get Started for Free 
-            <span class="material-symbols-outlined">trending_flat</span>
+            <p className={style.joinfree}>
+              Get Started for Free
+              <span class="material-symbols-outlined">trending_flat</span>
             </p>
           </div>
 
           <div className={style.cardTwo}>
             <h2>Trending Coins (24H)</h2>
-            <div> Etheriam</div>
-            <div> bitcoin</div>
-            <div>polygon</div>
+            <section className={style.trendingCoins}>
+              {trendingData &&
+                trendingData.map((item, idx) => (
+                  <div className={style.trendingCoin} key={idx}>
+                    <div className={style.namedetail}>
+                      <img src={item.item.small} alt="" />
+                      <h3>{item.item.name}</h3>
+                    </div>
+                    <p className={style.positiveGrowth}>
+                      <div className={style.positiveGrowthIndicator}>
+                        <span className="material-symbols-outlined">arrow_drop_up</span>
+                      </div>
+                      {parseFloat(item.item.data.price_change_percentage_24h.usd).toFixed(1)}%
+                    </p>
+                  </div>
+                ))}
+            </section>
           </div>
         </div>
       </div>

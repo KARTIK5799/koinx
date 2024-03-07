@@ -16,7 +16,7 @@ const PriceIndicator = ({low,high,curr,timespan}) => {
      
       <div className={style.prices}>
       <h3>{time} Low</h3>
-      <h3>{lowestPrice}</h3>
+      <h3>${lowestPrice}.00</h3>
         </div>
       <div className={style.priceBar}>
         <div className={style.bar}></div>
@@ -24,12 +24,12 @@ const PriceIndicator = ({low,high,curr,timespan}) => {
           <div className={ style.arrow}>
           <span className="material-symbols-outlined">arrow_drop_up</span>
           </div>
-          <div className={style.prices}>${currentPrice}</div>
+          <div className={style.prices}>${currentPrice}.00</div>
         </div>
       </div>
       <div className={style.prices}>
       <h3>{time} High</h3>
-      <h3>{highestPrice}</h3>
+      <h3>${highestPrice}.00</h3>
         </div>
     </div>
   );

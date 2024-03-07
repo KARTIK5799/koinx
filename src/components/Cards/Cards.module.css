@@ -95,6 +95,14 @@
     border-radius: 20px;
     
 }
+.timeSpanLink:active,
+.timeSpanLink.active
+{
+    background-color: #e3ecff;
+    color: #1d57d4;
+    border-radius: 20px;
+    
+}
 .chartCharted{
    height: 400px;
 }
@@ -144,7 +152,7 @@ font-weight: 600;
  display: flex;
  justify-content: space-between;
  align-items: center;
- gap: 2rem;
+ gap: 3rem;
  width: 100%;
  margin-bottom: 31px;
 }

@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, memo } from 'react';
 
-function TradingViewWidget() {
+function TradingViewWidget({chartTimeSpan,symbol}) {
   const container = useRef();
+
 
   useEffect(() => {
     if (!container.current.querySelector("script")) {
@@ -12,8 +13,8 @@ function TradingViewWidget() {
       script.innerHTML = `
         {
           "autosize": true,
-          "symbol": "BYBIT:BTCUSDH2024",
-          "interval": "D",
+          "symbol": "${symbol}",
+          "interval": "${chartTimeSpan}",
           "timezone": "Etc/UTC",
           "theme": "light",
           "style": "2",
@@ -27,7 +28,7 @@ function TradingViewWidget() {
         }`;
       container.current.appendChild(script);
     }
-  }, []);
+  }, [chartTimeSpan,symbol]);
 
   return (
     <div className="tradingview-widget-container" ref={container} style={{ height: "100%", width: "100%" ,border:'none' }}>

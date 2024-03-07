@@ -45,3 +45,42 @@
     width: 100%;
     padding: 30px 20px;
 }
+.positiveGrowth{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #a2efb0;
+    border-radius: 2px;
+    color: #12b179;
+    font-size: 18px;
+    width: 100px;
+}
+.positiveGrowthIndicator>span{
+    font-size: 30px;
+    fill: #12b179;
+}
+.positiveGrowthIndicator{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.trendingCoin{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.namedetail{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.namedetail img{
+    height: 30px;
+    border-radius: 100%;
+}
+.trendingCoins{
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-top: 31px;
+}

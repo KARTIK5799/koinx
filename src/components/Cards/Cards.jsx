@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import style from "./Cards.module.css";
 import { Button } from "@mui/material";
 import coinImg from "../../assets/Bitcoin.svg.webp";
-// import TradingViewWidget from "../TradingChart/TradingViewWidget";
+import TradingViewWidget from "../TradingChart/TradingViewWidget";
 import PriceIndicator from "../PriceIndicator/PriceIndicator";
 import Crousal from "../Crousal/Crousal";
 import PieChartWithCenterLabel from "../PieChart/PieChart";
@@ -13,7 +13,7 @@ import PieChartWithCenterLabel from "../PieChart/PieChart";
 
 
 
-const Cards = ({
+const Cards = ({coindata,
   charted,
   performance,
   sentiment,
@@ -24,25 +24,61 @@ const Cards = ({
   return (
     <div>
       <div className={style.cardContainer}>
-        {charted && <CharterdCard />}
-        {performance && <PerformanceCard/>}
-        {sentiment && <SentimentCard/>}
+        {charted && <CharterdCard coindata={coindata}/>}
+        {performance && <PerformanceCard coindata={coindata}/>}
+        {sentiment && <SentimentCard />}
         {about && <AboutCart/>}
-        {tokonomics && <TokonomicsCard/>}
+        {tokonomics && <TokonomicsCard />}
         {team && <TeamCard/>}
         </div>
     </div>
   );
 };
 
-const CharterdCard = ({ data }) => {
+const CharterdCard = ({ coindata }) => {
+  console.log()
   const [positive, setPositive] = useState(false);
+  const[timeSpanCharted,setTimeSpanCharted]=useState("24H");
+  const[timeSpanSelected,setTimeSpanSelected]=useState("24H");
+
+  const handletimerClick = (time) => {
+    setTimeSpanSelected(time)
+    switch (time) {
+      case '5M':
+        setTimeSpanCharted('5');
+        break;
+      case '15M':
+        setTimeSpanCharted('15');
+        break;
+      case '30M':
+        setTimeSpanCharted('30');
+        break;
+      case '1H':
+        setTimeSpanCharted('60');
+        break;
+      case '2H':
+        setTimeSpanCharted('120');
+        break;
+      case '4H':
+        setTimeSpanCharted('240');
+        break;
+      case '24H':
+        setTimeSpanCharted('D');
+        break;
+      default:
+        setTimeSpanCharted('D'); 
+    }
+  };
+  
   return (
     <div className={`${style.primaryCards} ${style.chartedCard}`}>
+      {coindata ? (
+      <>
       <section className={style.cardTitleCharted}>
-        <img src={coinImg} alt="" className={style.coinImg} />
-        <h2>Bitcoin</h2>
-        <p>BTC</p>
+        <img src={coindata.image.large} alt={coindata.symbol} className={style.coinImg} />
+        <h2>{coindata.name}</h2>
+        <p>{coindata && coindata.symbol && coindata.symbol.toUpperCase()}</p>
+
         <Button
           variant="contained"
           sx={{
@@ -53,59 +89,69 @@ const CharterdCard = ({ data }) => {
             textTransform: "none",
           }}
         >
-          Rank #1
+         Rank  #{
+          coindata.market_cap_rank}
         </Button>
       </section>
 
       <section className={style.cardPriceCharted}>
         <div className={style.priceCharted}>
-          <h2 className={style.usdPrice}>$46,953.04</h2>
-          <p className={style.inrPrice}>₹39,42,343</p>
+          <h2 className={style.usdPrice}>${coindata.market_data.current_price.usd}</h2>
+          <p className={style.inrPrice}>₹{coindata.market_data.current_price.inr}</p>
         </div>
-        <div className={style.growthChangePill}>
-          <p className={positive ? style.positiveGrowth : style.negativeGrowth}>
-            <div className={positive ? style.positiveGrowthIndicator : style.negativeGrowthIndicator}>
-            <span className="material-symbols-outlined">arrow_drop_up</span>
-            </div>
-            2.51%
-          </p>
-        </div>
-        <div className={style.chartedTime}>(24H)</div>
+        <div className={coindata.market_data.price_change_percentage_24h > 0 ? style.positiveGrowth : style.negativeGrowth}>
+  <div className={coindata.market_data.price_change_percentage_24h > 0 ? style.positiveGrowthIndicator : style.negativeGrowthIndicator}>
+    <span className="material-symbols-outlined">arrow_drop_up</span>
+  </div>
+  {parseFloat(coindata.market_data.price_change_percentage_24h).toFixed(2)}%
+</div>
+
+        <div className={style.chartedTime}>({timeSpanSelected})</div>
       </section>
 
       <section className={style.timespanCharted}>
-        <h2>Bitcoin Price Chart (USD)</h2>
+        <h2>{coindata.name} Price Chart (USD)</h2>
 
         <div className={style.timeSpanCharted}>
           <ul className={style.timeSpanLinks}>
-            <li className={style.timeSpanLink}>1H</li>
-            <li className={style.timeSpanLink}>24H</li>
-            <li className={style.timeSpanLink}>1M</li>
-            <li className={style.timeSpanLink}>3M</li>
-            <li className={style.timeSpanLink}>6M</li>
-            <li className={style.timeSpanLink}>1Y</li>
-            <li className={style.timeSpanLink}>All</li>
+            <li className={`${style.timeSpanLink}${timeSpanCharted === "5M" ?style.active :""}`} onClick={()=>{handletimerClick('5M')}}>5M</li>
+            <li className={`${style.timeSpanLink}${timeSpanCharted === "15M" ?style.active :""}`} onClick={()=>{handletimerClick('15M')}}>15M</li>
+            <li className={`${style.timeSpanLink}${timeSpanCharted === "30M" ?style.active :""}`} onClick={()=>{handletimerClick('30M')}}>30M</li>
+            <li className={`${style.timeSpanLink}${timeSpanCharted === "1H" ?style.active :""}`} onClick={()=>{handletimerClick('1H')}}>1H</li>
+            <li className={`${style.timeSpanLink}${timeSpanCharted === "2H" ?style.active :""}`} onClick={()=>{handletimerClick('2H')}}>2H</li>
+            <li className={`${style.timeSpanLink}${timeSpanCharted === "4H" ?style.active :""}`} onClick={()=>{handletimerClick('4H')}}>4H</li>
+            <li className={`${style.timeSpanLink}${timeSpanCharted === "24H" ?style.active :""}`} onClick={()=>{handletimerClick('24H')}}>1D</li>
           </ul>
         </div>
       </section>
 
       <section className={style.chartCharted}>
-        {/* <TradingViewWidget /> */}
+        <TradingViewWidget symbol={coindata && coindata.symbol && coindata.symbol.toUpperCase()} chartTimeSpan={timeSpanCharted} />
       </section>
+      </>
+    ) : (
+      <p>Data not available</p>
+    )}
     </div>
   );
 };
 
-const PerformanceCard=({data})=>{
+
+
+
+const PerformanceCard=({coindata})=>{
+  console.log(coindata)
     return(
         <div className={`${style.primaryCards} ${style.performanceCard}`}>
+           {coindata ? (
+      <>
           <section className={style.performanceTitle}>
           <h2>Performance</h2>
           </section>
 
            <section className={style.performanceIndicators}>
-            <PriceIndicator low={46930.22} high={49343.83} curr={48637.83} timespan={true}/>
-            <PriceIndicator low={16930.22} high={493743.83} timespan={false}/>
+            <PriceIndicator low={coindata.market_data.low_24h.usd} high={coindata.market_data.high_24h.usd} curr={coindata.market_data.current_price.usd} timespan={true}/>
+            <PriceIndicator low={coindata.market_data.atl.usd} high={coindata.market_data.ath.usd} timespan={false}/>
            </section>
 
             <section className={style.performanceFundamentals}>
@@ -122,58 +168,62 @@ info
                 <div className={style.performanceFundamentalsDataSection1}>
                         <div className={style.performanceFundamentalsDataSection1Data}>
                             <p>Bitcoin Price</p>
-                            <p>$16,815</p>
+                            <p>${coindata.market_data.current_price.usd}</p>
                         </div>
 
                         <div className={style.performanceFundamentalsDataSection1Data}>
                             <p>24h Low / 24h High</p>
-                            <p>$16,815/16,815</p>
+                            <p>${coindata.market_data.low_24h.usd}/${coindata.market_data.high_24h.usd}</p>
                         </div>
 
                         <div className={style.performanceFundamentalsDataSection1Data}>
                         <p>7d Low / 7d High</p>
-                            <p>$16,815/16,815</p>
+                            <p>${coindata.market_data.low_24h.usd}/${coindata.market_data.high_24h.usd}</p>
                         </div>
 
                         <div className={style.performanceFundamentalsDataSection1Data}>
                             <p>Trading Volume</p>
-                            <p>$16,815</p>
+                            <p>${coindata.market_data.total_volume.usd}</p>
                         </div>
 
                         <div className={style.performanceFundamentalsDataSection1Data}>
                             <p>Market Cap Rank</p>
-                            <p>$16,815</p>
+                            <p>{coindata.market_data.market_cap_rank}</p>
                         </div>
                 </div>
 
                 <div className={style.performanceFundamentalsDataSection2}>
                         <div className={style.performanceFundamentalsDataSection2Data}>
                             <p>Market Cap</p>
-                            <p>$16,815</p>
+                            <p>${coindata.market_data.market_cap.usd}</p>
                         </div>
 
                         <div className={style.performanceFundamentalsDataSection2Data}>
                             <p>Market Cap Dominance</p>
-                            <p>$16,815/16,815</p>
+                            <p>${coindata.market_data.market_cap.usd}/$16,815</p>
                         </div>
 
                         <div className={style.performanceFundamentalsDataSection2Data}>
                         <p>Volume / Market Cap</p>
-                            <p>$16,815/16,815</p>
+                            <p>${coindata.market_data.total_volume.usd}/${coindata.market_data.market_cap.usd}</p>
                         </div>
 
                         <div className={style.performanceFundamentalsDataSection2Data}>
                             <p>All Time High</p>
-                            <p>$16,815</p>
+                            <p>${coindata.market_data.ath.usd}</p>
                         </div>
 
                         <div className={style.performanceFundamentalsDataSection2Data}>
                             <p>All Time low</p>
-                            <p>$16,815</p>
+                            <p>${coindata.market_data.atl.usd}</p>
                         </div>
                 </div>
             </section>
             </section>
+            </>
+    ) : (
+      <p>Data not available</p>
+    )}
         </div>
     )
     
