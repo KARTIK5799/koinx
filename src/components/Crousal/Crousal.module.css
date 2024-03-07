@@ -42,3 +42,15 @@ width: 1000px;
     margin-left: -5rem;
     left: 5%;
 }
+
+@media only screen and (max-width: 500px) {
+    .prevButton{
+        margin-left: -4rem;
+        left: 4%;
+    }
+    .nextButton {
+        right: 60%;
+        margin-right:1.2rem;
+    }
+    
+}

@@ -412,7 +412,7 @@ const TeamCard=({data})=>{
       <section className={style.tokonomicsTitle}>
         <h2>Team</h2>
       </section>
-      <div>
+      <div className={style.tokonomicsText}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
         accusantium, officiis corporis, deleniti at pariatur, magni saepe a
         accusamus itaque nesciunt tempora? Dolorum iure ut pariatur vitae nisi

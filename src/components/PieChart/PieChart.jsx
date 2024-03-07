@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { PieChart } from '@mui/x-charts/PieChart';
+import './PieChart.css'
 
 
 const data = [

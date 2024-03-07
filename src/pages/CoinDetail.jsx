@@ -8,6 +8,7 @@ import Anime from "../../src/assets/animated.png";
 import { fetchCoinDetail, fetchTrendindcoins } from "../api/CoinData";
 import Filter from "../components/Filter/Filter";
 
+
 const CoinDetail = () => {
   const { coin } = useParams();
   const lowercaseCoin = coin.toLowerCase();
@@ -54,6 +55,7 @@ const CoinDetail = () => {
         <div className={style.primaryCardsSection}>
           <Cards charted={true} coindata={coinData} />
           <Filter coindata={coinData}/>
+         
         </div>
         <div className={style.secondaryCardSection}>
           <div className={style.cardOne}>
