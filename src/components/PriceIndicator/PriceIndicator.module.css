@@ -46,10 +46,10 @@
   
   @media only screen and (max-width: 500px) {
     .priceBar{
-        width: 251px;   
+        width: 200px;   
     }
     .prices{
-        font-size: 13px;
+        font-size: 12px;
         text-align: center;
     }
     .tradePriceInd{

@@ -8,6 +8,7 @@ import Anime from "../../src/assets/animated.png";
 import { fetchCoinDetail, fetchTrendindcoins } from "../api/CoinData";
 import Filter from "../components/Filter/Filter";
 import { Button } from "@mui/material";
+import FooterCrousal from '../components/FooterCrousal/FooterCrousal'
 
 
 const CoinDetail = () => {
@@ -53,7 +54,7 @@ const CoinDetail = () => {
     <div className={styles.pageContainer}>
       <BreadCrums coin={lowercaseCoin} />
 
-      <section className={style.cardTitleChartedMobile}>
+      {coinData && <section className={style.cardTitleChartedMobile}>
         <img src={coinData.image.large} alt={coinData.symbol} className={style.coinImg} />
         <h2>{coinData.name}</h2>
         <p>{coinData && coinData.symbol && coinData.symbol.toUpperCase()}</p>
@@ -71,12 +72,19 @@ const CoinDetail = () => {
          Rank  #{
           coinData.market_cap_rank}
         </Button>
-      </section>
+      </section>}
 
       <div className={style.cardSection}>
         <div className={style.primaryCardsSection}>
           <Cards charted={true} coindata={coinData} />
           <Filter coindata={coinData}/>
+
+          <div className={style.containerFooterMobile}>
+      <h1 className={style.firstHeading}>You May Also Like!</h1>
+      <FooterCrousal/>
+      <h1 className={style.secondHeading}>Trending Coins </h1>
+      <FooterCrousal/>
+    </div>
          
         </div>
         <div className={style.secondaryCardSection}>

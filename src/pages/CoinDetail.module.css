@@ -90,7 +90,10 @@
 .coinImg{
     height: 40px;
 }
+.containerFooterMobile{
+    display: none;
 
+}
 @media only screen and (max-width: 500px) {
     .cardSection{
        flex-direction: column;
@@ -98,8 +101,26 @@
     }
     .cardTitleChartedMobile{
         display: flex;
-        margin-top: 20px;
-        gap: 1rem;
+        margin-top: 10px;
+      gap: 1rem;
         align-items: center;
+        justify-content: flex-start;
      }
+
+     .containerFooterMobile {
+        background-color: white;
+ display: block;
+ margin-top: -4rem;
+ border-radius: 20px;
+        }
+        .firstHeading{
+            margin-top: 30px;
+        }
+        .secondHeading{
+            margin-top: 30px;
+        }
+        .containerFooter h1{
+           text-align: center;
+        }
+        
     }
