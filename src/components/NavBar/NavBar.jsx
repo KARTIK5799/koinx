@@ -81,7 +81,7 @@ function NavBar(props) {
                 src={logo}
                 alt="Logo"
                 style={{
-                  height: "70px",
+                  height: "100px",
                   display: { sm: "block" },
                   alignSelf: "start",
                 }}
